@@ -1,0 +1,74 @@
+---
+const experiences = [
+  {
+    role: "Full Stack Developer",
+    company: "Perzeus Corporation",
+    period: "June 2025 - Present",
+    points: [
+      "Developed and maintained several web applications, spearheaded mutiple projects from conception to deployment.",
+      "Worked closely with the company owner, and provided technical insights and solutions to improve the company's internal workflows."
+    ],
+  },
+  {
+    role: "Full Stack Developer",
+    company: "Freelance",
+    period: "February 2025 - Present",
+    points: [
+      "Developed multiple websites, and web applications for small businesses and individuals.",
+    ],
+  },
+  {
+    role: "Junior Web Developer(Part-Time)",
+    company: "Pixzel Digital",
+    period: "May 2024 - July 2025",
+    points: [
+      "Worked closely with the Senior Developer, and contributed to the development of multiple modules and features of BizSmart Resto, which includes Inventory management, Cashier POS, Ordering System, and more.",
+    ],
+  },
+];
+---
+
+<section id="work-experience" class="container mx-auto px-4 py-20 text-slate-100 sm:px-6 lg:px-8">
+  <div class="mb-10 max-w-3xl space-y-4">
+    <div class="badge badge-primary badge-outline badge-md">WORK EXPERIENCE</div>
+    <h2 class="card-title text-4xl font-['Bruno_Ace_SC'] text-info sm:text-5xl">Work Timeline</h2>
+  </div>
+
+  <div class="overflow-x-auto">
+    <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+      {experiences.map((experience, index) => (
+        <li>
+          {index !== 0 && <hr class="bg-info/40" />}
+          <div class="timeline-middle">
+            <div class="badge badge-primary badge-lg badge-outline h-12 w-12 rounded-full p-0">
+              <i class="fa-solid fa-briefcase text-base"></i>
+            </div>
+          </div>
+          <div class={`mb-10 ${index % 2 === 0 ? "timeline-start md:text-end" : "timeline-end"} w-full`}>
+            <div class="timeline-box w-full max-w-xl border-white/10 bg-base-100/40 p-0 shadow-lg backdrop-blur">
+              <div class="space-y-4 p-6">
+                <div class={`flex flex-col gap-3 ${index % 2 === 0 ? "md:items-end" : "md:items-start"}`}>
+                  <span class="badge badge-info badge-outline">{experience.period}</span>
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.25em] text-slate-400">{experience.company}</p>
+                    <h3 class="mt-2 text-xl font-semibold text-white">{experience.role}</h3>
+                  </div>
+                </div>
+
+                <ul class="space-y-3 text-sm leading-7 text-slate-300 sm:text-base">
+                  {experience.points.map((point) => (
+                    <li class="flex gap-3">
+                      <span class="mt-2 inline-flex h-2.5 w-2.5 flex-none rounded-full bg-primary"></span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          {index !== experiences.length - 1 && <hr class="bg-info/40" />}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
