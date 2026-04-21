@@ -1,0 +1,66 @@
+---
+const quickLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Work Experience", href: "#work-experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Education", href: "#education" },
+];
+
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/YeXiu2001", icon: "fa-brands fa-github" },
+  { label: "Facebook", href: "https://www.facebook.com/arcparaiso/", icon: "fa-brands fa-facebook-f" },
+  { label: "Instagram", href: "https://www.instagram.com/phyexiu/", icon: "fa-brands fa-instagram" },
+  { label: "WhatsApp", href: "https://wa.me/639383025631", icon: "fa-brands fa-whatsapp" },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-12 border-t border-white/10 bg-slate-950/70 text-slate-100 backdrop-blur">
+  <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+      <aside class="max-w-xl space-y-4">
+        <h2 class="text-3xl font-['Bruno_Ace_SC'] text-white">Raymart Paraiso</h2>
+        <p class="max-w-md text-sm leading-7 text-slate-400">
+          A Full Stack Developer from Pagadian City, I build web applications turning your ideas into working solutions.
+        </p>
+      </aside>
+
+      <nav class="space-y-4">
+        <h6 class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Quick Links</h6>
+        <div class="flex flex-col gap-3">
+          {quickLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-sm text-slate-200 transition hover:text-cyan-300"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      <nav class="space-y-4">
+        <h6 class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Connect</h6>
+        <div class="flex flex-col gap-3">
+          {socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-3 text-sm text-slate-200 transition hover:text-cyan-300"
+            >
+              <i class={`${link.icon} w-4 text-center`}></i>
+              <span>{link.label}</span>
+            </a>
+          ))}
+        </div>
+      </nav>
+    </div>
+
+    <div class="mt-8 border-t border-white/10 pt-4 text-xs uppercase tracking-[0.22em] text-slate-500 sm:text-sm">
+      © {currentYear} raymartparaiso.com
+    </div>
+  </div>
+</footer>
