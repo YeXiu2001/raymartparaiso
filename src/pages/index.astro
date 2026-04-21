@@ -1,37 +1,20 @@
 ---
 import Layout from "../layouts/app.astro";
 import Hero from "../sections/hero.astro";
+import About from "../sections/about.astro";
+import WorkExperience from "../sections/work-experience.astro";
+import Projects from "../sections/projects.astro";
+import Education from "../sections/education.astro";
+import Footer from "../components/footer.astro";
 ---
-<Layout title="Home">
+<Layout>
   <section id="home" class="hero min-h-[calc(100dvh-4rem)]">
     <Hero />
   </section>
 
-  <section id="about" class="container mx-auto px-4 py-16 text-slate-100">
-    <h2 class="mb-4 text-3xl font-['Bruno_Ace_SC'] text-info">About</h2>
-    <p class="max-w-3xl text-lg">
-      I focus on building reliable software with practical UX and clear business value.
-    </p>
-  </section>
-
-  <section id="work-experience" class="container mx-auto px-4 py-16 text-slate-100">
-    <h2 class="mb-4 text-3xl font-['Bruno_Ace_SC'] text-info">Work Experience</h2>
-    <p class="max-w-3xl text-lg">
-      Experience highlights go here. You can later extract this section into `src/pages/work-experience.astro`.
-    </p>
-  </section>
-
-  <section id="projects" class="container mx-auto px-4 py-16 text-slate-100">
-    <h2 class="mb-4 text-3xl font-['Bruno_Ace_SC'] text-info">Projects</h2>
-    <p class="max-w-3xl text-lg">
-      Featured projects and case studies go here. This section can become its own page later.
-    </p>
-  </section>
-
-  <section id="education" class="container mx-auto px-4 py-16 text-slate-100">
-    <h2 class="mb-4 text-3xl font-['Bruno_Ace_SC'] text-info">Education</h2>
-    <p class="max-w-3xl text-lg">
-      Your education details go here, ready to move to a dedicated route when needed.
-    </p>
-  </section>
+  <About />
+  <WorkExperience />
+  <Projects />
+  <Education />
+  <Footer />
 </Layout>

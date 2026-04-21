@@ -1,0 +1,37 @@
+---
+alwaysApply: true
+---
+# Codex Project UI Rules
+
+This project uses Astro with a DaisyUI-first approach.
+
+## Core approach
+- Prefer DaisyUI components, semantic roles, and theme tokens before reaching for custom markup patterns.
+- Use TailwindCSS utility classes only when DaisyUI does not provide the needed layout, spacing, sizing, alignment, or responsive behavior.
+- Keep styling in markup as much as possible. Add custom CSS only for app-wide theme tokens, global backgrounds, or cases that are impractical with DaisyUI and Tailwind alone.
+- Preserve the existing visual language in `src/assets/app.css` and reuse current theme colors instead of introducing unrelated palettes.
+
+## Responsive design
+- Every new section, component, and layout change must be responsive by default.
+- Start with mobile-first class composition, then scale up with `sm:`, `md:`, `lg:`, and `xl:` utilities where needed.
+- Avoid fixed widths and heights unless the constraint is intentional and still works on small screens.
+- Prefer fluid layouts such as `container`, `max-w-*`, `grid`, `flex`, `gap-*`, `px-*`, and `py-*` over absolute positioning.
+- Check text wrapping, button stacking, card grids, nav layouts, and image sizing for narrow screens.
+
+## DaisyUI usage
+- Use DaisyUI components for common UI patterns such as `navbar`, `hero`, `card`, `button`, `menu`, `badge`, `avatar`, `divider`, `timeline`, `tooltip`, `mockup-*`, and `footer` when applicable.
+- Prefer DaisyUI color tokens like `bg-base-100`, `text-base-content`, `bg-primary`, and `text-primary-content` over raw Tailwind color values.
+- Use raw Tailwind color classes only when a DaisyUI token cannot express the design requirement.
+- Do not replace DaisyUI components with fully custom utility compositions unless DaisyUI clearly cannot handle the pattern.
+
+## Astro structure
+- Keep sections and reusable UI split into focused Astro components.
+- Favor simple semantic HTML with clear heading hierarchy.
+- Avoid unnecessary client-side JavaScript for static presentation sections.
+
+## Editing expectations for Codex
+- When updating UI, modify existing components before introducing new files unless reuse clearly improves structure.
+- Keep class lists readable and grouped by purpose: structure, spacing, color, typography, state.
+- Do not introduce a new component library.
+- Do not add inline styles unless there is no practical alternative.
+- If a requested design cannot be achieved cleanly with DaisyUI alone, use Tailwind utilities as the second layer rather than writing large custom CSS blocks.

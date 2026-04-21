@@ -11,12 +11,12 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Chiron+GoRound+TC:wght@200..900&display=swap" rel="stylesheet">
-    <title>{title}</title>
+    <title>{title || "Raymart Paraiso"}</title>
   </head>
   <body>
-    <div class="h-dvh flex flex-col">
+    <div class="min-h-dvh flex flex-col">
       <Header />
-      <main class="flex-1 min-h-0">
+      <main class="flex-1">
         <slot />
       </main>
     </div>
