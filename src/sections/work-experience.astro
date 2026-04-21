@@ -45,7 +45,8 @@ const experiences = [
             </div>
           </div>
           <div class={`mb-10 ${index % 2 === 0 ? "timeline-start md:text-end" : "timeline-end"} w-full`}>
-            <div class="timeline-box w-full max-w-xl border-white/10 bg-base-100/40 p-0 shadow-lg backdrop-blur">
+            <div class={`flex w-full ${index % 2 === 0 ? "md:justify-end" : "md:justify-start"}`}>
+              <div class="timeline-box w-full max-w-xl border-white/10 bg-base-100/40 p-0 shadow-lg backdrop-blur">
               <div class="space-y-4 p-6">
                 <div class={`flex flex-col gap-3 ${index % 2 === 0 ? "md:items-end" : "md:items-start"}`}>
                   <span class="badge badge-info badge-outline">{experience.period}</span>
@@ -63,6 +64,7 @@ const experiences = [
                     </li>
                   ))}
                 </ul>
+              </div>
               </div>
             </div>
           </div>
