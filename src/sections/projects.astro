@@ -1,0 +1,266 @@
+---
+const projects = [
+  {
+    title: "Perzeus Corporation",
+    description:
+      "Built and deployed the Perzeus Corporation website using Astro and TailwindCSS, focusing on performance, maintainability, and seamless content delivery, with CI/CD via GitHub Actions.",
+    stack: ["Astro", "TailwindCSS", "Git", "GitHub Actions"],
+  },
+  {
+    title: "Peddlero",
+    description:
+     "Built Peddlero, a full-stack operations system for a Coca-Cola distributor, delivering 90% faster reporting, improved sales data accuracy, and a 95% reduction in manual, paper-based workflows.",
+    stack: ["Laravel 12", "MySQL", "JavaScript", "Axios", "Bootstrap 5", "CloudPanel", "DigitalOcean", "Git", "GitHub Actions"],
+  },
+  {
+    title: "Ledgr",
+    description:
+      "Developed Ledgr, a full-stack bookkeeping management system that streamlines financial operations and client workflows. Automated invoice and statement of account generation, improved document retrieval efficiency, and simplified reporting for service sales, expenses, and other financial activities.s",
+    stack: ["Laravel 13", "Livewire", "AlpineJS","Bootstrap 5", "MySQL", "CloudPanel", "DigitalOcean", "Git", "GitHub Actions"],
+  },
+  {
+    title: "BizSmart Resto",
+    description:
+      "Worked as a Junior Web Developer on a restaurant management system at Pixzel Digital, contributing to multiple modules (Inventory, POS, Cashiering, Transactions) and handling both front-end and back-end tasks in close collaboration with a Senior Developer.",
+    stack: ["Laravel 10", "jQuery", "Ajax", "Bootstrap 5", "MySQL", "Git"],
+  },
+  {
+    title: "The Witness Well(Ongoing)",
+    description:
+      "Full-stack development of The Witness Well, a content platform for publishing and organizing faith-based testimonies and reflections.",
+    stack: ["Astro", "TailwindCSS", "DaisyUI", "AlpineJS", "Git", "GitHub Actions"],
+  },
+  {
+    title: "Infratrak (Ongoing)",
+    description:
+      "Currently developing Infratrak as a Lead Developer, a full-stack project management system for tracking infrastructure projects and their progress.",
+    stack: ["Laravel 13", "Livewire", "AlpineJS","Bootstrap 5", "MySQL", "CloudPanel", "DigitalOcean", "Git", "GitHub Actions"],
+  },
+];
+
+const previewLibrary = {
+  editor: "/assets/project-previews/code-editor-dark.svg",
+  dashboard: "/assets/project-previews/dashboard-glow.svg",
+  deploy: "/assets/project-previews/deployment-flow.svg",
+  workflow: "/assets/project-previews/workflow-board.svg",
+};
+
+const projectMetaByTitle = {
+  "Perzeus Corporation": {
+    images: [previewLibrary.editor, previewLibrary.deploy, previewLibrary.dashboard],
+    viewSite: "https://perzeuscorp.com",
+  },
+  Peddlero: {
+    images: [previewLibrary.dashboard, previewLibrary.workflow, previewLibrary.deploy],
+  },
+  Ledgr: {
+    images: [previewLibrary.workflow, previewLibrary.dashboard, previewLibrary.editor],
+  },
+  "BizSmart Resto": {
+    images: [previewLibrary.workflow, previewLibrary.editor, previewLibrary.dashboard],
+  },
+  "The Witness Well(Ongoing)": {
+    images: [previewLibrary.editor],
+  },
+  "Infratrak (Ongoing)": {
+    images: [previewLibrary.deploy],
+  },
+};
+
+const isOngoing = (title) => title.includes("(Ongoing)");
+const getProjectMeta = (title) => projectMetaByTitle[title] ?? { images: [previewLibrary.editor] };
+const getStatusLabel = (title) => (isOngoing(title) ? "Ongoing" : "Completed");
+const getDisplayTitle = (title) => title.replace(/\s*\(Ongoing\)\s*/g, "").trim();
+const getProjectId = (title) =>
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+---
+
+<section id="projects" class="container mx-auto px-4 py-20 text-slate-100 sm:px-6 lg:px-8">
+  <div class="mb-12 grid gap-6 xl:grid-cols-[1.1fr_0.9fr] xl:items-end">
+    <div class="max-w-4xl space-y-4">
+      <div class="badge badge-primary badge-outline badge-md">PROJECTS</div>
+      <h2 class="card-title text-4xl font-['Bruno_Ace_SC'] text-info sm:text-5xl">Selected Projects</h2>
+    </div>
+  </div>
+
+  <div class="grid gap-6 lg:grid-cols-2">
+    {projects.map((project) => {
+      const meta = getProjectMeta(project.title);
+      const ongoing = isOngoing(project.title);
+      const modalId = `${getProjectId(project.title)}-modal`;
+      const projectId = getProjectId(project.title);
+      const displayTitle = getDisplayTitle(project.title);
+      const viewSite = meta.viewSite;
+
+      return (
+        <>
+          <article class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-base-100/35 shadow-xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-info/30 hover:shadow-[0_24px_80px_rgba(14,165,233,0.12)]">
+            <div class="relative flex h-full flex-col gap-6 p-6 sm:p-7">
+              <div class="space-y-2">
+                <div class="flex items-start justify-between gap-4">
+                  <h3 class="min-w-0 flex-1 text-2xl font-semibold leading-tight text-white sm:text-[1.9rem]">{displayTitle}</h3>
+
+                  <div class={`shrink-0 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] ${
+                    ongoing
+                      ? "border-warning/20 bg-warning/10 text-warning"
+                      : "border-success/20 bg-success/10 text-success"
+                  }`}>
+                    {ongoing ? "Ongoing" : "Shipped"}
+                  </div>
+                </div>
+
+                <p class="text-sm leading-7 text-slate-300 sm:text-base text-justify">{project.description}</p>
+              </div>
+
+              <div class="divider my-0 text-xs uppercase tracking-[0.22em] text-slate-500">Tech Stack</div>
+
+              <div class="flex flex-wrap gap-2.5">
+                {project.stack.map((item) => (
+                  <span class="rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-sm text-slate-200 transition duration-300 hover:border-info/30 hover:text-white">
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              <div class="mt-auto flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  class="btn btn-primary rounded-full px-6"
+                  onclick={`document.getElementById('${modalId}')?.showModal()`}
+                >
+                  <i class="fa-solid fa-images"></i>
+                  View Details
+                </button>
+
+                {viewSite && !ongoing ? (
+                  <a href={viewSite} target="_blank" rel="noreferrer" class="btn btn-outline rounded-full px-6">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    View Site
+                  </a>
+                ) : (
+                  <span class="inline-flex items-center gap-2 rounded-full border border-dashed border-white/15 bg-white/4 px-4 py-3 text-sm text-slate-400">
+                    <i class="fa-regular fa-clock"></i>
+                    Private Project
+                  </span>
+                )}
+              </div>
+            </div>
+          </article>
+
+          <dialog id={modalId} class="modal">
+            <div class="modal-box w-11/12 max-w-5xl overflow-hidden border border-white/10 bg-base-200/95 p-0 shadow-2xl backdrop-blur">
+              <div class="border-b border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.18),transparent_36%),linear-gradient(135deg,rgba(15,23,42,0.96),rgba(17,24,39,0.9))] px-6 py-6 sm:px-8">
+                <div class="mb-4 flex items-start justify-between gap-4">
+                  <div class="space-y-3">
+                    <div>
+                      <h3 class="text-2xl font-semibold text-white sm:text-3xl">{displayTitle}</h3>
+                      <p class="mt-3 max-w-3xl text-sm leading-7 text-slate-300 sm:text-base">{project.description}</p>
+                    </div>
+                  </div>
+
+                  <form method="dialog">
+                    <button class="btn btn-circle btn-ghost border border-white/10 bg-slate-950/40 text-slate-200">
+                      <i class="fa-solid fa-xmark"></i>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5">
+                  {project.stack.map((item) => (
+                    <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div class="space-y-6 p-6 sm:p-8">
+                {ongoing ? (
+                  <div class="rounded-[1.75rem] border border-warning/20 bg-warning/8 p-8 text-center sm:p-12">
+                    <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-warning/25 bg-warning/10 text-warning">
+                      <i class="fa-regular fa-hourglass-half text-2xl"></i>
+                    </div>
+                    <h4 class="mt-5 text-2xl font-semibold text-white">Coming soon</h4>
+                    <p class="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+                      This project is still in active development. The detailed walkthrough and live preview will be added once the current release is ready.
+                    </p>
+                  </div>
+                ) : (
+                  <div class="space-y-4">
+                    <div class="carousel w-full rounded-[1.75rem] border border-white/10 bg-base-100/40">
+                      {meta.images.map((image, slideIndex) => {
+                        const slideId = `${projectId}-slide-${slideIndex + 1}`;
+                        const previousId = `${projectId}-slide-${slideIndex === 0 ? meta.images.length : slideIndex}`;
+                        const nextId = `${projectId}-slide-${slideIndex === meta.images.length - 1 ? 1 : slideIndex + 2}`;
+
+                        return (
+                          <div id={slideId} class="carousel-item relative w-full">
+                            <img
+                              src={image}
+                              alt={`${displayTitle} preview ${slideIndex + 1}`}
+                              class="h-[240px] w-full object-cover sm:h-[360px] lg:h-[460px]"
+                              loading="lazy"
+                            />
+                            <div class="absolute inset-x-0 top-4 flex items-start justify-between px-4">
+                              <div class="rounded-full border border-white/10 bg-slate-950/70 px-4 py-2 text-xs uppercase tracking-[0.22em] text-slate-200">
+                                Preview {slideIndex + 1}
+                              </div>
+                            </div>
+                            <div class="absolute left-4 right-4 top-1/2 flex -translate-y-1/2 transform justify-between">
+                              <a href={`#${previousId}`} class="btn btn-circle border-none bg-slate-950/70 text-white hover:bg-slate-900">
+                                ❮
+                              </a>
+                              <a href={`#${nextId}`} class="btn btn-circle border-none bg-slate-950/70 text-white hover:bg-slate-900">
+                                ❯
+                              </a>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                      {meta.images.map((_, slideIndex) => {
+                        const slideId = `${projectId}-slide-${slideIndex + 1}`;
+                        return (
+                          <a href={`#${slideId}`} class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs uppercase tracking-[0.2em] text-slate-300 transition duration-300 hover:border-info/30 hover:text-white">
+                            Slide {slideIndex + 1}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                <div class="flex flex-wrap items-center gap-3 border-t border-white/10 pt-2">
+                  {viewSite && !ongoing ? (
+                    <a href={viewSite} target="_blank" rel="noreferrer" class="btn btn-outline rounded-full px-6">
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                      View Site
+                    </a>
+                  ) : (
+                    <span class="inline-flex items-center gap-2 rounded-full border border-dashed border-white/15 bg-white/4 px-4 py-3 text-sm text-slate-400">
+                      <i class="fa-regular fa-clock"></i>
+                      View Site Coming soon
+                    </span>
+                  )}
+
+                  <form method="dialog" class="sm:ml-auto">
+                    <button class="btn btn-ghost rounded-full px-6 text-slate-200 hover:bg-white/8">Close</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        </>
+      );
+    })}
+  </div>
+</section>
