@@ -1,0 +1,64 @@
+---
+const distinctions = [
+  "Gawad Chancellor's Award for Academic Excellence",
+  "DOST Academic Excellence Award",
+];
+---
+
+<section id="education" class="container mx-auto px-4 py-20 text-slate-100 sm:px-6 lg:px-8">
+  <div class="mb-10 max-w-3xl space-y-4">
+    <div class="badge badge-primary badge-outline badge-md">EDUCATION</div>
+    <h2 class="card-title text-4xl font-['Bruno_Ace_SC'] text-info sm:text-5xl">Academic Foundation</h2>
+  </div>
+
+  <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+    <article class="card card-bordered border-white/10 bg-base-100/35 shadow-xl backdrop-blur-sm">
+      <div class="card-body gap-8 p-6 sm:p-8">
+        <div class="space-y-4">
+            <p class="text-sm uppercase tracking-[0.3em] text-base-content/60">Mindanao State University</p>
+            <h3 class="text-2xl font-semibold leading-tight text-white sm:text-3xl">BS Information Technology</h3>
+            <p class="text-base text-base-content/75 sm:text-lg">Major in Database Systems</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div class="rounded-[1.5rem] border border-white/10 bg-base-100/40 p-5">
+            <div class="text-xs uppercase tracking-[0.24em] text-base-content/60">Graduation Year</div>
+            <div class="mt-3 text-3xl font-semibold text-primary">2024</div>
+          </div>
+
+          <div class="rounded-[1.5rem] border border-white/10 bg-base-100/40 p-5">
+            <div class="text-xs uppercase tracking-[0.24em] text-base-content/60">Latin Honor</div>
+            <div class="mt-3 text-2xl font-semibold text-info sm:text-3xl">Magna Cum Laude</div>
+          </div>
+
+          <div class="rounded-[1.5rem] border border-white/10 bg-base-100/40 p-5 sm:col-span-2 xl:col-span-1">
+            <div class="text-xs uppercase tracking-[0.24em] text-base-content/60">GWA</div>
+            <div class="mt-3 flex items-end gap-2">
+              <span class="text-4xl font-semibold leading-none text-white sm:text-5xl">1.43</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <aside class="card card-bordered border-white/10 bg-base-100/35 shadow-xl backdrop-blur-sm">
+      <div class="card-body p-6 sm:p-8">
+        <div class="space-y-2">
+          <p class="text-sm uppercase tracking-[0.3em] text-base-content/60">Other Key Distinctions</p>
+          <h3 class="text-2xl font-semibold text-white">Academic Awards</h3>
+        </div>
+
+        <div class="mt-2 space-y-4">
+          {distinctions.map((distinction) => (
+            <div class="flex items-start gap-4 rounded-[1.5rem] border border-white/10 bg-base-100/40 p-4 sm:p-5">
+              <div class="mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full border border-white/10 bg-base-300/60 text-info">
+                <i class="fa-solid fa-award text-sm"></i>
+              </div>
+              <p class="text-sm leading-7 text-base-content/80 sm:text-base">{distinction}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
