@@ -1,0 +1,84 @@
+---
+const stack = [
+  { name: "Laravel", src: "https://cdn.simpleicons.org/laravel/FF2D20?viewbox=auto" },
+  { name: "Livewire", src: "https://cdn.simpleicons.org/livewire/FB70A9?viewbox=auto" },
+  { name: "MySQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "Astro", src: "https://cdn.simpleicons.org/astro/FFFFFF?viewbox=auto" },
+  { name: "TailwindCSS", src: "https://cdn.simpleicons.org/tailwindcss/06B6D4?viewbox=auto" },
+  { name: "DaisyUI", src: "https://cdn.simpleicons.org/daisyui/5A0EF8?viewbox=auto" },
+  { name: "Bootstrap 5", src: "https://cdn.simpleicons.org/bootstrap/7952B3?viewbox=auto" },
+  { name: "CloudPanel", src: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/cloudpanel.svg" },
+  { name: "DigitalOcean", src: "https://cdn.simpleicons.org/digitalocean/0080FF?viewbox=auto" },
+];
+---
+
+<section id="about" class="container mx-auto px-4 py-20 text-base-content sm:px-6 lg:px-8">
+  <div class="grid items-start gap-8 xl:grid-cols-[1.15fr_0.85fr]">
+
+    <div class="card card-bordered bg-transparent backdrop-blur-sm">
+      <div class="card-body">
+          <div class="flex flex-wrap items-center gap-3">
+            <!-- <div class="badge badge-info badge-outline badge-lg">ABOUT ME</div> -->
+            <div class="badge badge-primary badge-outline badge-md">2+ YEARS EXPERIENCE</div>
+          </div>
+
+            <h2 class="card-title text-4xl font-['Bruno_Ace_SC'] leading-tight text-info sm:text-5xl">
+              About Me
+            </h2>
+            <p class="max-w-3xl text-justify text-base leading-8 text-base-content/80 sm:text-lg mb-4">
+              Hi, I'm Raymart Paraiso, a full-stack developer primarily using Laravel and Livewire with 2+ years of professional experience.
+              Since June 2025, I've been working as an end-to-end product developer at Perzeus Corporation,
+              building web applications from product conception and system design to deployment and server
+              management.
+            </p>
+
+          <div class="stats stats-vertical w-full border border-white/10 bg-base-300/60 shadow sm:stats-horizontal">
+            <div class="stat">
+              <div class="stat-title text-base-content/60">Current Role</div>
+              <div class="stat-value text-2xl text-info">Full Stack Developer</div>
+              <div class="stat-desc text-base-content/70">Perzeus Corporation</div>
+            </div>
+            <!-- <div class="stat">
+              <div class="stat-title text-slate-400">Scope</div>
+              <div class="stat-value text-2xl text-primary">End to End</div>
+              <div class="stat-desc text-slate-300">System design to deployment</div>
+            </div> -->
+            <div class="stat">
+              <div class="stat-title text-base-content/60">Core Stack</div>
+              <div class="stat-value text-2xl text-secondary">Laravel + Livewire</div>
+              <div class="stat-desc text-base-content/70">MySQL, Astro, TailwindCSS, DaisyUI, Bootstrap 5</div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+      <div class="card card-bordered bg-transparent backdrop-blur-sm">
+      <div class="card-body gap-6 p-6 sm:p-8">
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-base-content/60">Tech Stack</p>
+            <h3 class="card-title text-2xl text-base-content">Tools I build with</h3>
+          </div>
+
+        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3">
+          {stack.map((item) => (
+            <div class="card card-bordered border-white/10 bg-base-100/40 transition duration-300 hover:-translate-y-1 hover:border-info/35 hover:bg-base-100/60">
+              <div class="card-body items-center gap-3 p-4 text-center">
+                <figure class="avatar">
+                  <div class="w-12 rounded-xl bg-base-300/80 p-2">
+                    <img
+                      src={item.src}
+                      alt={`${item.name} logo`}
+                      loading="lazy"
+                      class="h-8 w-8 object-contain"
+                    />
+                  </div>
+                </figure>
+                <p class="text-sm font-medium leading-5 text-base-content">{item.name}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
