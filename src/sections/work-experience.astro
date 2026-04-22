@@ -31,7 +31,7 @@ const experiences = [
 <section id="work-experience" class="container mx-auto px-4 py-20 text-slate-100 sm:px-6 lg:px-8">
   <div class="mb-10 max-w-3xl space-y-4">
     <div class="badge badge-primary badge-outline badge-md">WORK EXPERIENCE</div>
-    <h2 class="card-title text-4xl font-['Bruno_Ace_SC'] text-info sm:text-5xl">Work Timeline</h2>
+    <h2 class="card-title text-3xl font-['Bruno_Ace_SC'] text-info sm:text-4xl lg:text-5xl">Work Timeline</h2>
   </div>
 
   <div>
@@ -52,11 +52,11 @@ const experiences = [
                     <span class="badge badge-info badge-outline">{experience.period}</span>
                     <div>
                       <p class="text-xs uppercase tracking-[0.25em] text-slate-400">{experience.company}</p>
-                      <h3 class="mt-2 text-xl font-semibold text-white">{experience.role}</h3>
+                      <h3 class="mt-2 text-lg font-semibold text-white sm:text-xl">{experience.role}</h3>
                     </div>
                   </div>
 
-                  <ul class="space-y-3 text-sm leading-7 text-slate-300 sm:text-base">
+                  <ul class="space-y-3 text-sm leading-6 text-slate-300 sm:text-base sm:leading-7">
                     {experience.points.map((point) => (
                       <li class="flex gap-3">
                         <span class="mt-2 inline-flex h-2.5 w-2.5 flex-none rounded-full bg-primary"></span>
