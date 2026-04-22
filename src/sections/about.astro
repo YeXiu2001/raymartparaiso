@@ -26,21 +26,21 @@ const stack = [
             <div class="badge badge-primary badge-outline badge-md">2 YEARS EXPERIENCE</div>
           </div>
 
-            <h2 class="card-title text-4xl font-['Bruno_Ace_SC'] leading-tight text-info sm:text-5xl">
+            <h2 class="card-title text-3xl font-['Bruno_Ace_SC'] leading-tight text-info sm:text-4xl lg:text-5xl">
               About Me
             </h2>
-            <p class="mb-4 max-w-3xl text-justify text-base leading-8 text-base-content/80 sm:text-lg">
+            <p class="mb-4 max-w-3xl text-justify text-sm leading-7 text-base-content/80 sm:text-base lg:text-lg">
               Hi, I'm Raymart Paraiso, a full-stack developer primarily using Laravel and Livewire with 2 years of professional experience.
               Since June 2025, I've been working as an end-to-end product developer at Perzeus Corporation,
               building web applications from product conception and system design to deployment and server
               management.
             </p>
 
-          <div class="stats stats-vertical mt-auto w-full border border-white/10 bg-base-300/60 shadow sm:stats-horizontal">
+          <div class="stats stats-vertical mt-auto w-full border border-white/10 bg-base-300/60 shadow md:stats-horizontal">
             <div class="stat">
               <div class="stat-title text-base-content/60">Current Role</div>
-              <div class="stat-value text-2xl text-info">Full Stack Developer</div>
-              <div class="stat-desc text-base-content/70">Perzeus Corporation</div>
+              <div class="stat-value whitespace-normal break-words text-xl leading-tight text-info sm:text-2xl">Full Stack Developer</div>
+              <div class="stat-desc whitespace-normal break-words text-xs text-base-content/70 sm:text-sm">Perzeus Corporation</div>
             </div>
             <!-- <div class="stat">
               <div class="stat-title text-slate-400">Scope</div>
@@ -49,8 +49,8 @@ const stack = [
             </div> -->
             <div class="stat">
               <div class="stat-title text-base-content/60">Core Stack</div>
-              <div class="stat-value text-2xl text-secondary">Laravel + Livewire</div>
-              <div class="stat-desc text-base-content/70">MySQL, AlpineJS, TailwindCSS</div>
+              <div class="stat-value whitespace-normal break-words text-xl leading-tight text-secondary sm:text-2xl">Laravel + Livewire</div>
+              <div class="stat-desc whitespace-normal break-words text-xs text-base-content/70 sm:text-sm">MySQL, AlpineJS, TailwindCSS</div>
             </div>
           </div>
       </div>
@@ -59,8 +59,8 @@ const stack = [
       <div class="card h-full xl:h-[28rem] card-bordered border-white/10 bg-base-100/35 backdrop-blur-sm">
       <div class="card-body h-full">
           <div>
-            <p class="text-sm uppercase tracking-[0.3em] text-base-content/60">Tech Stack</p>
-            <h3 class="card-title text-2xl text-base-content">Tools I build with</h3>
+            <p class="text-xs uppercase tracking-[0.26em] text-base-content/60 sm:text-sm sm:tracking-[0.3em]">Tech Stack</p>
+            <h3 class="card-title text-xl text-base-content sm:text-2xl">Tools I build with</h3>
           </div>
 
         <div class="relative mt-2 flex min-h-0 flex-1 flex-col">
@@ -78,7 +78,7 @@ const stack = [
                       />
                     </div>
                   </figure>
-                  <p class="text-sm font-medium leading-5 text-base-content">{item.name}</p>
+                  <p class="text-xs font-medium leading-5 text-base-content sm:text-sm">{item.name}</p>
                 </div>
               </div>
             ))}
