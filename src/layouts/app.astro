@@ -38,6 +38,8 @@ const schemaItems = Array.isArray(structuredData) ? structuredData : [structured
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href={new URL("/sitemap.xml", site).toString()} />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/raymart-paraiso-favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/raymart-paraiso-favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Chiron+GoRound+TC:wght@200..900&display=swap" rel="stylesheet">
