@@ -1,10 +1,10 @@
 ---
-import { PERSON_NAME, socialLinks } from "../data/site";
+import { CONTACT_EMAIL, PERSON_NAME, socialLinks } from "../data/site";
 ---
 
 <div class="hero-content w-full max-w-full px-4 text-center text-slate-100 sm:px-6">
     <div class="w-full max-w-3xl overflow-hidden">
-      <h1 class="sr-only">Allan Raymart Paraiso</h1>
+      <h1 class="sr-only">{PERSON_NAME}</h1>
       <p class="sr-only">Full Stack Developer from Pagadian City.</p>
       <p class="mb-5 text-[clamp(2.5rem,12vw,4.5rem)] font-bold leading-[0.95] font-['Bruno_Ace_SC']">
         LET'S <br />
@@ -19,6 +19,18 @@ import { PERSON_NAME, socialLinks } from "../data/site";
       <p class="mb-5 text-base leading-7 sm:text-xl sm:leading-8 lg:text-2xl">
         Hi, I'm <span class="text-info">Raymart</span>. I make sure your idea doesn’t stay an idea.
       </p>
+      <div class="mx-auto mb-5 flex max-w-md items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400 sm:text-sm">
+        <span class="h-px flex-1 bg-white/20"></span>
+        <span>Let's connect</span>
+        <span class="h-px flex-1 bg-white/20"></span>
+      </div>
+      <a
+        href={`mailto:${CONTACT_EMAIL}`}
+        class="mb-6 inline-flex max-w-full items-center justify-center gap-3 text-sm text-slate-200 underline-offset-4 transition hover:text-cyan-200 hover:underline sm:text-base"
+      >
+        <i class="fa-solid fa-envelope shrink-0 text-cyan-300"></i>
+        <span class="min-w-0 break-all sm:break-normal">{CONTACT_EMAIL}</span>
+      </a>
       <div class="flex flex-row justify-center gap-4 text-2xl sm:text-3xl lg:text-4xl">
             {socialLinks.map((link) => (
               <a
