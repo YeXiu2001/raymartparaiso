@@ -1,17 +1,12 @@
 ---
+import { JOB_TITLE, LOCATION, PERSON_NAME, socialLinks } from "../data/site";
+
 const quickLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Work Experience", href: "#work-experience" },
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
-];
-
-const socialLinks = [
-  { label: "GitHub", href: "https://github.com/YeXiu2001", icon: "fa-brands fa-github" },
-  { label: "Facebook", href: "https://www.facebook.com/arcparaiso/", icon: "fa-brands fa-facebook-f" },
-  { label: "Instagram", href: "https://www.instagram.com/phyexiu/", icon: "fa-brands fa-instagram" },
-  { label: "WhatsApp", href: "https://wa.me/639383025631", icon: "fa-brands fa-whatsapp" },
 ];
 
 const currentYear = new Date().getFullYear();
@@ -21,9 +16,9 @@ const currentYear = new Date().getFullYear();
   <div class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
     <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
       <aside class="max-w-xl space-y-4">
-        <h2 class="text-2xl font-['Bruno_Ace_SC'] text-info sm:text-3xl">Raymart Paraiso</h2>
+        <h2 class="text-2xl font-['Bruno_Ace_SC'] text-info sm:text-3xl">{PERSON_NAME}</h2>
         <p class="max-w-md text-sm leading-6 text-slate-400 sm:leading-7">
-          A Full Stack Developer from Pagadian City, I build web applications turning your ideas into working solutions.
+          {JOB_TITLE} from {LOCATION}, turning ideas into systems that deliver real results.
         </p>
       </aside>
 
@@ -48,7 +43,7 @@ const currentYear = new Date().getFullYear();
             <a
               href={link.href}
               target="_blank"
-              rel="noreferrer"
+              rel={link.relMe ? "me noopener noreferrer" : "noopener noreferrer"}
               class="inline-flex items-center gap-3 text-sm text-slate-200 transition hover:text-cyan-300"
             >
               <i class={`${link.icon} w-4 text-center`}></i>

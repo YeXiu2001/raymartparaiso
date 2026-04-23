@@ -6,8 +6,77 @@ import WorkExperience from "../sections/work-experience.astro";
 import Projects from "../sections/projects.astro";
 import Education from "../sections/education.astro";
 import Footer from "../components/footer.astro";
+import {
+  aboutSummary,
+  JOB_TITLE,
+  LOCATION,
+  PERSON_ALT_NAME,
+  PERSON_NAME,
+  profileImagePath,
+  sameAsLinks,
+  SITE_URL,
+} from "../data/site";
+
+const title = "Allan Raymart Paraiso | Full Stack Developer in Pagadian City";
+const description = aboutSummary;
+const canonicalPath = "/";
+const imageUrl = new URL(profileImagePath, SITE_URL).toString();
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: PERSON_NAME,
+    alternateName: PERSON_ALT_NAME,
+    url: SITE_URL,
+    image: imageUrl,
+    jobTitle: JOB_TITLE,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: LOCATION,
+      addressCountry: "PH",
+    },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Mindanao State University",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: "Perzeus Corporation",
+    },
+    sameAs: sameAsLinks,
+    knowsAbout: [
+      "Laravel",
+      "Livewire",
+      "MySQL",
+      "Astro",
+      "TailwindCSS",
+      "AlpineJS",
+      "Javascript",
+      "Digital Ocean",
+      "web application development",
+      "deployment",
+    ],
+    description,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: PERSON_NAME,
+    alternateName: "Raymart Paraiso Portfolio",
+    url: SITE_URL,
+    description,
+  },
+];
 ---
-<Layout>
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  ogImagePath={profileImagePath}
+  robots="index,follow"
+  structuredData={structuredData}
+>
   <section id="home" class="hero min-h-[calc(100dvh-4rem)]">
     <Hero />
   </section>
