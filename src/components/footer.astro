@@ -1,5 +1,5 @@
 ---
-import { JOB_TITLE, LOCATION, PERSON_NAME, socialLinks } from "../data/site";
+import { CONTACT_EMAIL, CONTACT_PHONE, JOB_TITLE, LOCATION, PERSON_NAME, socialLinks } from "../data/site";
 
 const quickLinks = [
   { label: "Home", href: "#home" },
@@ -39,6 +39,20 @@ const currentYear = new Date().getFullYear();
       <nav class="space-y-4">
         <h6 class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Connect</h6>
         <div class="flex flex-col gap-3">
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            class="inline-flex items-center gap-3 text-sm text-slate-200 transition hover:text-cyan-300"
+          >
+            <i class="fa-solid fa-envelope w-4 text-center"></i>
+            <span class="min-w-0 break-all">{CONTACT_EMAIL}</span>
+          </a>
+          <a
+            href={`tel:${CONTACT_PHONE}`}
+            class="inline-flex items-center gap-3 text-sm text-slate-200 transition hover:text-cyan-300"
+          >
+            <i class="fa-solid fa-phone w-4 text-center"></i>
+            <span>{CONTACT_PHONE}</span>
+          </a>
           {socialLinks.map((link) => (
             <a
               href={link.href}
