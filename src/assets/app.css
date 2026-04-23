@@ -56,3 +56,13 @@ body {
   font-family: 'Chiron GoRound TC', sans-serif;
   min-height: 100dvh;
 }
+
+@layer components {
+  .content-section {
+    @apply container mx-auto px-4 py-20 sm:px-6 lg:px-8;
+  }
+
+  .content-section-header {
+    @apply mb-10 space-y-4;
+  }
+}

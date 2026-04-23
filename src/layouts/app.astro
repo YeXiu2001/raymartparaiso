@@ -1,17 +1,60 @@
 ---
 import "../assets/app.css";
 import Header from "../components/header.astro";
-const { title } = Astro.props;
+import { SITE_NAME, SITE_URL } from "../data/site";
+
+type StructuredData = Record<string, unknown>;
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  ogImagePath?: string;
+  robots?: string;
+  structuredData?: StructuredData | StructuredData[];
+}
+
+const {
+  title = SITE_NAME,
+  description = "",
+  canonicalPath = "/",
+  ogImagePath,
+  robots = "index,follow",
+  structuredData = [],
+} = Astro.props as Props;
+
+const site = Astro.site ?? new URL(SITE_URL);
+const canonicalUrl = new URL(canonicalPath, site).toString();
+const ogImageUrl = ogImagePath ? new URL(ogImagePath, site).toString() : undefined;
+const schemaItems = Array.isArray(structuredData) ? structuredData : [structuredData];
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Allan Raymart Paraiso" />
+    <meta name="robots" content={robots} />
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href={new URL("/sitemap.xml", site).toString()} />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Chiron+GoRound+TC:wght@200..900&display=swap" rel="stylesheet">
     <title>{title || "Raymart Paraiso"}</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonicalUrl} />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+    {schemaItems.map((item) => (
+      <script type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
   </head>
   <body>
     <div class="min-h-dvh flex flex-col">
