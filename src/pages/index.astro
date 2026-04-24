@@ -21,6 +21,7 @@ const title = "Allan Raymart Paraiso | Full Stack Developer in Pagadian City";
 const description = aboutSummary;
 const canonicalPath = "/";
 const imageUrl = new URL(profileImagePath, SITE_URL).toString();
+const imageAlt = "Portrait of Allan Raymart Paraiso, full-stack developer from Pagadian City";
 
 const structuredData = [
   {
@@ -61,6 +62,19 @@ const structuredData = [
   },
   {
     "@context": "https://schema.org",
+    "@type": "ImageObject",
+    name: PERSON_NAME,
+    contentUrl: imageUrl,
+    url: imageUrl,
+    caption: imageAlt,
+    description: imageAlt,
+    creator: {
+      "@type": "Person",
+      name: PERSON_NAME,
+    },
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "WebSite",
     name: PERSON_NAME,
     alternateName: "Raymart Paraiso Portfolio",
@@ -74,6 +88,7 @@ const structuredData = [
   description={description}
   canonicalPath={canonicalPath}
   ogImagePath={profileImagePath}
+  ogImageAlt={imageAlt}
   robots="index,follow"
   structuredData={structuredData}
 >

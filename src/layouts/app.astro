@@ -10,6 +10,7 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   ogImagePath?: string;
+  ogImageAlt?: string;
   robots?: string;
   structuredData?: StructuredData | StructuredData[];
 }
@@ -19,6 +20,7 @@ const {
   description = "",
   canonicalPath = "/",
   ogImagePath,
+  ogImageAlt,
   robots = "index,follow",
   structuredData = [],
 } = Astro.props as Props;
@@ -38,7 +40,8 @@ const schemaItems = Array.isArray(structuredData) ? structuredData : [structured
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href={new URL("/sitemap.xml", site).toString()} />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,10 +54,12 @@ const schemaItems = Array.isArray(structuredData) ? structuredData : [structured
     {description && <meta property="og:description" content={description} />}
     <meta property="og:url" content={canonicalUrl} />
     {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    {ogImageUrl && ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+    {ogImageUrl && ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt} />}
     {schemaItems.map((item) => (
       <script type="application/ld+json" set:html={JSON.stringify(item)} />
     ))}
