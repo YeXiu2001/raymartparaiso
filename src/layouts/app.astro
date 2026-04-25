@@ -11,6 +11,8 @@ interface Props {
   canonicalPath?: string;
   ogImagePath?: string;
   ogImageAlt?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   robots?: string;
   structuredData?: StructuredData | StructuredData[];
 }
@@ -21,6 +23,8 @@ const {
   canonicalPath = "/",
   ogImagePath,
   ogImageAlt,
+  ogImageWidth,
+  ogImageHeight,
   robots = "index,follow",
   structuredData = [],
 } = Astro.props as Props;
@@ -39,15 +43,17 @@ const schemaItems = Array.isArray(structuredData) ? structuredData : [structured
     <meta name="robots" content={robots} />
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="sitemap" href={new URL("/sitemap.xml", site).toString()} />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="sitemap" href={new URL("/sitemap-index.xml", site).toString()} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-192x192.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Chiron+GoRound+TC:wght@200..900&display=swap" rel="stylesheet">
     <title>{title || "Raymart Paraiso"}</title>
+    <meta name="theme-color" content="#0f172a" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
@@ -55,6 +61,8 @@ const schemaItems = Array.isArray(structuredData) ? structuredData : [structured
     <meta property="og:url" content={canonicalUrl} />
     {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
     {ogImageUrl && ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+    {ogImageWidth && <meta property="og:image:width" content={String(ogImageWidth)} />}
+    {ogImageHeight && <meta property="og:image:height" content={String(ogImageHeight)} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
