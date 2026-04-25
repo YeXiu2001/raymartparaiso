@@ -8,6 +8,8 @@ import Education from "../sections/education.astro";
 import Footer from "../components/footer.astro";
 import {
   aboutSummary,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
   JOB_TITLE,
   LOCATION,
   PERSON_ALT_NAME,
@@ -27,11 +29,14 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${SITE_URL}/#person`,
     name: PERSON_NAME,
     alternateName: PERSON_ALT_NAME,
     url: SITE_URL,
     image: imageUrl,
     jobTitle: JOB_TITLE,
+    email: `mailto:${CONTACT_EMAIL}`,
+    telephone: CONTACT_PHONE,
     address: {
       "@type": "PostalAddress",
       addressLocality: LOCATION,
@@ -70,16 +75,28 @@ const structuredData = [
     description: imageAlt,
     creator: {
       "@type": "Person",
-      name: PERSON_NAME,
+      "@id": `${SITE_URL}/#person`,
     },
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
     name: PERSON_NAME,
     alternateName: "Raymart Paraiso Portfolio",
     url: SITE_URL,
     description,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${SITE_URL}/#profilepage`,
+    name: `${PERSON_NAME} – Full Stack Developer Portfolio`,
+    url: SITE_URL,
+    description,
+    mainEntity: { "@type": "Person", "@id": `${SITE_URL}/#person` },
+    about: { "@type": "Person", "@id": `${SITE_URL}/#person` },
+    isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#website` },
   },
 ];
 ---
@@ -89,6 +106,8 @@ const structuredData = [
   canonicalPath={canonicalPath}
   ogImagePath={profileImagePath}
   ogImageAlt={imageAlt}
+  ogImageWidth={1200}
+  ogImageHeight={630}
   robots="index,follow"
   structuredData={structuredData}
 >
