@@ -22,6 +22,13 @@ export const socialLinks = [
     relMe: true,
   },
   {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/arparaiso/",
+    icon: "fa-brands fa-linkedin",
+    colorClass: "text-blue-500",
+    relMe: true,
+  },
+  {
     label: "Facebook",
     href: "https://www.facebook.com/arcparaiso/",
     icon: "fa-brands fa-facebook",
