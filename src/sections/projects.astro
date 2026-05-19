@@ -1,5 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import perzeusAbout from "../assets/Perzeuscorp_Screenshots/About.png";
+import perzeusHero from "../assets/Perzeuscorp_Screenshots/Hero.png";
+import perzeusServices from "../assets/Perzeuscorp_Screenshots/Services.png";
 import peddleroDashboard from "../assets/Peddlero_Screenshots/Dashboard.png";
 import peddleroFinancialsReport from "../assets/Peddlero_Screenshots/Financials_Report.png";
 import peddleroInventoryItems from "../assets/Peddlero_Screenshots/Inventory_Items.png";
@@ -66,9 +69,15 @@ const peddleroScreenshots = [
   { src: peddleroSalesComparisonReport, alt: "Peddlero sales comparison report" },
 ];
 
+const perzeusScreenshots = [
+  { src: perzeusHero, alt: "Perzeus Corporation homepage hero section" },
+  { src: perzeusAbout, alt: "Perzeus Corporation about section" },
+  { src: perzeusServices, alt: "Perzeus Corporation services section" },
+];
+
 const projectMetaByTitle = {
   "Perzeus Corporation": {
-    images: [previewLibrary.editor, previewLibrary.deploy, previewLibrary.dashboard],
+    images: perzeusScreenshots,
     viewSite: "https://perzeuscorp.com",
   },
   Peddlero: {
